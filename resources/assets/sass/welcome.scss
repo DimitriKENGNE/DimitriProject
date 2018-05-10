@@ -1,0 +1,19 @@
+#home {
+
+  padding: 100%;
+
+  .container {
+  width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .img_gauche {
+    width: 30%;
+    position: relative;
+  }
+
+  .contenu {
+    width: 60%;
+    position: relative;
+    }
+}
