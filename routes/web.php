@@ -14,3 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/about', function () {
+   return view('about');
+});
+
+
+Route::get('/foire-aux-questions', function () {
+    $name = 'Cameroun';
+
+    $tasks = DB::table('tasks')->get();
+
+    return $tasks;
+   //return view('foire-aux-questions', compact('name', 'tasks'));
+});
