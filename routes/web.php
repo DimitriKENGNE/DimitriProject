@@ -21,11 +21,24 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/foire-aux-questions', function () {
+Route::get('/foire-aux-questions/tasks', function () {
+
+
     $name = 'Cameroun';
 
     $tasks = DB::table('tasks')->get();
 
-    return $tasks;
-   //return view('foire-aux-questions', compact('name', 'tasks'));
+    //return $tasks;
+   return view('foire-aux-questions', compact('name', 'tasks'));
+});
+
+Route::get('/foire-aux-questions/tasks/{task}', function ($id) {
+
+
+
+
+    $task = DB::table('tasks')->find($id);
+
+    //return $tasks;
+   return view('tasks.show', compact('task'));
 });
