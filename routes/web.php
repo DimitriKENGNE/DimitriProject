@@ -11,9 +11,8 @@
 |
 */
 
-use App\Task;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -23,24 +22,7 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/foire-aux-questions/tasks', function () {
+Route::get('/tasks', 'TasksController@index');
 
+Route::get('/tasks/{task}', 'TasksController@show');
 
-    $name = 'Cameroun';
-
-    $tasks = Task::all();
-
-    //return $tasks;
-   return view('foire-aux-questions', compact('name', 'tasks'));
-});
-
-Route::get('/foire-aux-questions/tasks/{task}', function ($id) {
-
-
-
-
-    $task = Task::find($id);
-
-    //return $tasks;
-   return view('tasks.show', compact('task'));
-});

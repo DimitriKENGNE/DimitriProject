@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>Aboout Us</title>
+    <title>About Us</title>
 
 </head>
 

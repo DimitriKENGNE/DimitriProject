@@ -14,7 +14,7 @@
 <ul>
     @foreach ($tasks as $task)
 
-        <li><a href="/foire-aux-questions/tasks/{{ $task -> id }}">{{ $task -> body }}</a></li>
+        <li><a href="/tasks/{{ $task -> id }}">{{ $task -> body }}</a></li>
 
     @endforeach()
 </ul>
