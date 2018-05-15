@@ -4351,7 +4351,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
 
-			// Opera 10-11 does not throw on post-comma invalid pseudos
+			// Opera 10-11 does not throw on posts-comma invalid pseudos
 			el.querySelectorAll("*,:x");
 			rbuggyQSA.push(",.*:");
 		});
@@ -6648,7 +6648,7 @@ jQuery.extend( {
 
 											// Support: Promises/A+ section 2.3.3.3.4.1
 											// https://promisesaplus.com/#point-61
-											// Ignore post-resolution exceptions
+											// Ignore posts-resolution exceptions
 											if ( depth + 1 >= maxDepth ) {
 
 												// Only substitute handlers pass on context
@@ -12245,7 +12245,7 @@ jQuery.extend( {
 				transport.send( requestHeaders, done );
 			} catch ( e ) {
 
-				// Rethrow post-completion exceptions
+				// Rethrow posts-completion exceptions
 				if ( completed ) {
 					throw e;
 				}
@@ -28197,7 +28197,7 @@ if (token) {
      * (under "semi-related fun fact") for more details.
      *
      * When working with HTML you should always
-     * [quote attribute values](http://wonko.com/post/html-escaping) to reduce
+     * [quote attribute values](http://wonko.com/posts/html-escaping) to reduce
      * XSS vectors.
      *
      * @static
@@ -38923,7 +38923,7 @@ function flushSchedulerQueue () {
     }
   }
 
-  // keep copies of post queues before resetting state
+  // keep copies of posts queues before resetting state
   var activatedQueue = activatedChildren.slice();
   var updatedQueue = queue.slice();
 
@@ -43878,7 +43878,7 @@ var patch = createPatchFunction({ nodeOps: nodeOps, modules: modules });
 
 /* istanbul ignore if */
 if (isIE9) {
-  // http://www.matts411.com/post/internet-explorer-9-oninput/
+  // http://www.matts411.com/posts/internet-explorer-9-oninput/
   document.addEventListener('selectionchange', function () {
     var el = document.activeElement;
     if (el && el.vmodel) {
@@ -45059,7 +45059,7 @@ function parse (
     if (platformIsPreTag(element.tag)) {
       inPre = false;
     }
-    // apply post-transforms
+    // apply posts-transforms
     for (var i = 0; i < postTransforms.length; i++) {
       postTransforms[i](element, options);
     }
