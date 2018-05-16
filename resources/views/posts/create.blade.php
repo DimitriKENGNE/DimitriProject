@@ -22,9 +22,19 @@
                 <textarea name="body" id="body" cols="30" rows="3" class="form-control"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Publish</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Publish</button>
+            </div>
+
+
 
         </form>
+
+
+        @include('layouts.errors')
+
+
+
 
 
     </div>
