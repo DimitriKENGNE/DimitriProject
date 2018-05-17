@@ -32,7 +32,7 @@ Route::get('/posts/create', 'PostsController@create');
 
 Route::post('/posts', 'PostsController@store');
 
-//Route::get('/posts/{posts}', 'PostsController@show');
+Route::get('/posts/{post}', 'PostsController@show');
 
 
 

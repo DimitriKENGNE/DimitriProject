@@ -2,6 +2,20 @@
 
 @section('content')
 
-    <h1> A place to show the post. </h1>
 
+    <div class="col-sm-8 blog-main">
+        
+
+        <div class="blog-post">
+            <h2 class="blog-post-title">
+                    {{ $post->title }}
+            </h2>
+            <p class="blog-post-meta">
+                {{ $post->created_at->toDayDateTimeString() }}
+            </p>
+
+            {{ $post->body }}
+        </div><!-- /.blog-post -->
+
+    </div><!-- /.blog-main -->
 @endsection
