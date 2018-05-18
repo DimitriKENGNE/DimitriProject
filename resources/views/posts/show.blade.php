@@ -33,5 +33,44 @@
             </ul>
         </div>
 
+        <hr>
+
+        <div class="card">
+            <div class="card-bloc">
+                <form method="post" action="/posts/{{ $post->id }}/comments">
+
+                    {{ csrf_field() }}
+
+                    <div class="form-group">
+                        <textarea name="body" id="" cols="30" rows="1" placeholder="Your comment here." class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Add comment</button>
+                    </div>
+
+                </form>
+
+                @include('layouts.errors')
+            </div>
+        </div>
+
     </div><!-- /.blog-main -->
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
