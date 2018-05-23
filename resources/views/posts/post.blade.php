@@ -5,7 +5,8 @@
         </a>
     </h2>
     <p class="blog-post-meta">
-        {{ $post->created_at->toDayDateTimeString() }}
+        by {{ $post->user->name }}
+        on {{ $post->created_at->toDayDateTimeString() }}
     </p>
 
     {{ $post->body }}

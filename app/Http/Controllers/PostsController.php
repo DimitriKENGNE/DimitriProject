@@ -5,8 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use App\User;
 class PostsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
 
     public function index()
     {
@@ -15,7 +21,7 @@ class PostsController extends Controller
     }
 
 
-    public function show(Post $post)
+    public function show(Post $post )
     {
 
         return view('posts.show', compact('post'));
@@ -45,7 +51,17 @@ class PostsController extends Controller
         //Save it to the database
         //$post->save();
 
-        Post::create(request(['title', 'body'])); // Create a post and save it to the database
+        auth()->user()->publish(             // Create a post and save it to the database
+          new Post(request(['title', 'body']))
+        );
+
+        //  OU ENCORE
+        //
+        //  Post::create([
+        //      'title' => request('title'),
+        //      'body' => request('body'),
+        //      'user_id' => auth()->id(),
+        //  ]);
 
         //And then redirect to the home page
 
