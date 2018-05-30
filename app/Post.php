@@ -53,4 +53,13 @@ class Post extends Model
             $query->whereYear('created_at', $filters['year']);     // On selectionne parmis les posts créés pendant les mois indiqués plus haut, ceux qui ont été créés durant l'année indiquée dans la requête.
         }
     }
+
+    public static function archives()
+    {
+        return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published' )   // On selectionne les années, les mois de création et le nbre des posts
+        ->groupBy('year', 'month')                                                                           // On les classe par année et par mois
+        ->orderByRaw('min(created_at) desc')
+            ->get()                                                                                              // On les prends
+            ->toArray();
+    }
 }

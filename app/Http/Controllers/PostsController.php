@@ -19,15 +19,8 @@ class PostsController extends Controller
         $posts = Post::latest()                                       // Les posts les plus recents d'abord
         ->filter(request()->only(['month', 'year']))                          // On filtre les posts selon le mois et l'année de création. Ce filtre est définit dans le fichier Post.php
         ->get();
-
-
-        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published' )   // On selectionne les années, les mois de création et le nbre des posts
-            ->groupBy('year', 'month')                                                                           // On les classe par année et par mois
-            ->orderByRaw('min(created_at) desc')
-            ->get()                                                                                              // On les prends
-            ->toArray();
-
-        return view('posts.index', compact('posts', 'archives'));
+        
+        return view('posts.index', compact('posts'));
     }
 
 

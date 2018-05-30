@@ -15,6 +15,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        view()->composer('layouts.sidebar', function ($view) {    // On utilise un service provider pour renseigner la variable archives se trouvant
+            $view->with('archives', \App\Post::archives());       // dans toutes les pages qui contiennent le sidebar
+        });                                                       // $view renvoie à la page à afficher et \App\Post::archives() est la valeur de archives.
     }
 
     /**
