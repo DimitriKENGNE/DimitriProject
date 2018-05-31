@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Post;
+use App\Repositories\Posts;
+use Carbon\Carbon;
 
 class PostsController extends Controller
 {
@@ -14,11 +16,13 @@ class PostsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index()
+    public function index(Posts $posts)
     {
-        $posts = Post::latest()                                       // Les posts les plus recents d'abord
-        ->filter(request()->only(['month', 'year']))                          // On filtre les posts selon le mois et l'année de création. Ce filtre est définit dans le fichier Post.php
-        ->get();
+        $posts = $posts->all();
+
+        //$posts = Post::latest()                                       // Les posts les plus recents d'abord
+        //->filter(request()->only(['month', 'year']))                          // On filtre les posts selon le mois et l'année de création. Ce filtre est définit dans le fichier Posts.php
+        //->get();
 
         return view('posts.index', compact('posts'));
     }
