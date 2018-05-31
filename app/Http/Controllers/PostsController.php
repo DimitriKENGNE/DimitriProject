@@ -19,7 +19,7 @@ class PostsController extends Controller
         $posts = Post::latest()                                       // Les posts les plus recents d'abord
         ->filter(request()->only(['month', 'year']))                          // On filtre les posts selon le mois et l'année de création. Ce filtre est définit dans le fichier Post.php
         ->get();
-        
+
         return view('posts.index', compact('posts'));
     }
 
