@@ -11,6 +11,12 @@
 |
 */
 
+App::singleton('App\Billing\Stripe', function() {
+    return new \App\Billing\Stripe(config('services.stripe.secret'));
+});
+
+
+
 
 Route::get('/welcome', function () {
     return view('welcome');
