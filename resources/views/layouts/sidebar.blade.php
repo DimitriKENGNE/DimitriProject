@@ -6,6 +6,7 @@
     <div class="sidebar-module">
         <h4>Archives</h4>
         <ol class="list-unstyled">
+            <?php $archives = \App\Post::archives() ?>
             @foreach($archives as $stats)
                 <li>
                     <a href="/?month={{ $stats['month'] }}&year={{ $stats['year'] }}">
