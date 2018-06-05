@@ -18,6 +18,8 @@ class PostsController extends Controller
 
     public function index(Posts $posts)
     {
+
+
         $posts = $posts->all();
 
         //$posts = Post::latest()                                       // Les posts les plus recents d'abord
@@ -69,6 +71,10 @@ class PostsController extends Controller
         //      'body' => request('body'),
         //      'user_id' => auth()->id(),
         //  ]);
+
+        session()->flash(
+            'message', 'Your post has now been published'
+        );
 
         //And then redirect to the home page
 
