@@ -13,6 +13,22 @@ class Post extends Model
 
     // ou encore protected $fillable = ['title', 'body'];
 
+    /**
+     * Override parent boot and Call deleting event
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($posts) {
+            foreach ($posts->comments()->get() as $comment) {
+                $comment->delete();
+            }
+        });
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);

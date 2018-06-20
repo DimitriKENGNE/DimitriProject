@@ -97,7 +97,13 @@ class PostsController extends Controller
         return redirect('/');
     }
 
-
+    public function destroy($id)
+    {
+        //
+        $post = \App\Post::find($id);
+        $post->delete();
+        return redirect('/')->with('success', 'Post has been  deleted');
+    }
 
 
 

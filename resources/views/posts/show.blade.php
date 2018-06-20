@@ -19,11 +19,7 @@
 
             @if($post->user->id == auth()->id())
                 <a href="/posts/{{ $post->id }}/edit" class="btn btn-warning">Edit</a>
-                <form action="" method="post">
-                    @csrf
-                    <input name="_method" type="hidden" value="DELETE">
-                    <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
+                <a href="/posts/{{ $post->id }}/delete" class="btn btn-danger">Delete</a>
             @endif
         </div><!-- /.blog-post -->
 

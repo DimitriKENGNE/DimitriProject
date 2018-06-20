@@ -40,9 +40,14 @@ Route::post('/posts', 'PostsController@store');
 
 Route::get('/posts/{post}', 'PostsController@show');
 
+
 Route::get('/posts/{post}/edit', 'PostsController@edit');
 
 Route::post('/posts/update/{post}', 'PostsController@update');
+
+
+
+Route::get('/posts/{post}/delete', 'PostsController@destroy');
 
 
 
