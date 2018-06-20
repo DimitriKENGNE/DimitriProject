@@ -53,6 +53,8 @@ Route::get('/posts/{post}/delete', 'PostsController@destroy');
 
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 
+Route::get('/comments/{comment}/delete', 'CommentsController@destroy');
+
 
 
 

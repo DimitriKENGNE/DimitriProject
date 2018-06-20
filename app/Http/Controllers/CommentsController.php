@@ -18,4 +18,14 @@ class CommentsController extends Controller
 
         return back();
     }
+
+
+
+    public function destroy($id)
+    {
+        //
+        $comment = \App\Comment::find($id);
+        $comment->delete();
+        return back()->with('success', 'Post has been  deleted');
+    }
 }
