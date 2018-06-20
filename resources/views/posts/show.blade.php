@@ -11,11 +11,23 @@
                     {{ $post->title }}
             </h2>
             <p class="blog-post-meta">
-                {{ $post->created_at->toDayDateTimeString() }}
+                by {{ $post->user->name }}
+                on {{ $post->created_at->toDayDateTimeString() }}
             </p>
 
-            {{ $post->body }}
+            {{ $post->body }} <br>
+
+            @if($post->user->id == auth()->id())
+                <a href="/posts/{{ $post->id }}/edit" class="btn btn-warning">Edit</a>
+                <form action="" method="post">
+                    @csrf
+                    <input name="_method" type="hidden" value="DELETE">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            @endif
         </div><!-- /.blog-post -->
+
+
 
         <hr>
 
@@ -23,11 +35,10 @@
             <ul class="list-group">
                 @foreach($post->comments as $comment)
                     <li class="list-group-item">
+                        {{ $comment->body }}
                         <strong>
                             {{ $comment->created_at->diffForHumans() }}: &nbsp;
                         </strong>
-
-                        {{ $comment->body }}
                     </li>
                 @endforeach
             </ul>

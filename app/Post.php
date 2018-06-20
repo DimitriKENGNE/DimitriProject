@@ -30,16 +30,17 @@ class Post extends Model
     {
         //Add a comment to a post
 
-        $this->comments()->create(compact('body'));
+        //$this->comments()->create(compact('body'));
 
 
         //  Ou encore
         //
         //
-    //    Comment::create([
-    //        'body' => $body,
-    //        'post_id' => $this->id,   //$this refer to the post.
-    //    ]);
+        Comment::create([
+            'body' => $body,
+            'post_id' => $this->id,   //$this refer to the post.
+            'user_id' => auth()->id(),
+        ]);
     }
 
     public function scopeFilter($query, $filters)

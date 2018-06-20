@@ -40,6 +40,9 @@ Route::post('/posts', 'PostsController@store');
 
 Route::get('/posts/{post}', 'PostsController@show');
 
+Route::get('/posts/{post}/edit', 'PostsController@edit');
+
+Route::post('/posts/update', 'PostsController@update');
 
 
 

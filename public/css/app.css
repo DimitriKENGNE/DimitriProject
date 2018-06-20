@@ -10592,7 +10592,7 @@ h6,
 }
 
 #flash-message {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 10;

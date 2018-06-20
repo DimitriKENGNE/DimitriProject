@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Hash;
 use App\Mail\Welcome;
 use App\User;
 use Illuminate\Foundation\Http\FormRequest;
@@ -35,12 +36,11 @@ class RegistrationForm extends FormRequest
 
     public function persist()
     {
-        $user = User::create(
-            $this->only([
-                'name',
-                'email',
-                'password'])
-        );
+        $user = User::create([
+                'name' => request('name'),
+                'email' => request('email'),
+                'password' => Hash::make(request('password'))
+            ]);
 
         // Sign them in
         auth()->login($user);
