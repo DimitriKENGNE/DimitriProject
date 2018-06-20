@@ -13,7 +13,7 @@ class PostsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('auth')->except(['index', 'show', 'create']);
     }
 
     public function index(Posts $posts)
@@ -39,6 +39,9 @@ class PostsController extends Controller
 
     public function create()
     {
+        if (!auth()->check()){
+            return redirect('/login');
+        }
         return view('posts.create');
     }
 
