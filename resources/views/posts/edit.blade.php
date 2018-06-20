@@ -8,7 +8,7 @@
 
         <hr>
 
-        <form method="post" action="{{'posts/update', $id}}">
+        <form method="post" action="/posts/update/{{$id}}', ">
 
             {{ csrf_field() }}
 
