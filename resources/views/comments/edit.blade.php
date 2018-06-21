@@ -52,7 +52,7 @@
                     {{ csrf_field() }}
 
                     <div class="form-group">
-                        <textarea name="body" id="" cols="30" rows="1" placeholder="Your comment here." class="form-control">{{ $comment->body }}</textarea>
+                        <textarea name="body" id="" cols="30" rows="1" placeholder="Your comment here." class="form-control" autofocus>{{ \App\Comment::find($id)->body }}</textarea>
                     </div>
 
                     <div class="form-group">
