@@ -20,3 +20,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+
+document.getElementById('hide').addEventListener("click", function(){
+    document.getElementById('flash-alert').style.display = "none"
+});
+
+document.getElementById('show').addEventListener("click", function(){
+    document.getElementById('flash-alert').style.display = "block"
+});
+

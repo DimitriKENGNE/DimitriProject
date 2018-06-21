@@ -37,7 +37,14 @@
                         </strong>
                         @if($comment->user->id == auth()->id())
                             <a href="/comments/{{ $comment->id }}/edit" class="btn btn-warning ml-auto">Edit</a>
-                            <a href="/comments/{{ $comment->id }}/delete" class="btn btn-danger ml-auto">Delete</a>
+                            <button class="btn btn-danger ml-auto" id="show">Delete</button>
+
+                            <div class="sidebar-module sidebar-module-inset" id="flash-alert">
+                                <p>Do you really want to delete this comment ?</p>
+
+                                <button class="btn btn-danger" id="hide">No</button>
+                                <a class="btn btn-primary" href="/comments/{{ $comment->id }}/delete">Yes</a>
+                            </div>
                         @endif
                     </li>
                 @endforeach
@@ -66,10 +73,14 @@
             </div>
         </div>
 
+
+
+
+
     </div><!-- /.blog-main -->
 @endsection
 
-
+<script src="../../assets/js/app.js"></script>
 
 
 

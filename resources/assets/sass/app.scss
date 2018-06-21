@@ -189,3 +189,11 @@ h6, .h6 {
   right: 20px;
   z-index: 10;
 }
+
+#flash-alert {
+  position: fixed;
+  z-index: 3;
+  align-items: center;
+  top: 500px;
+  display: none;
+}
