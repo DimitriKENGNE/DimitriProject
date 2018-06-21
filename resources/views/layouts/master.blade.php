@@ -30,6 +30,12 @@
     </div>
 @endif
 
+@if ($flash = session('error'))
+    <div id="flash-message" class="alert alert-danger" role="alert">
+        {{ $flash }}
+    </div>
+@endif
+
 <div class="blog-header">
     <div class="container">
         <h1 class="blog-title">The Bootstrap Blog</h1>

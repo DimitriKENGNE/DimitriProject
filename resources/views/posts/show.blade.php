@@ -36,7 +36,7 @@
                             {{ $comment->created_at->diffForHumans() }}: &nbsp;
                         </strong>
                         @if($comment->user->id == auth()->id())
-                            <a href="/posts/{{ $comment->id }}/edit" class="btn btn-warning ml-auto">Edit</a>
+                            <a href="/comments/{{ $comment->id }}/edit" class="btn btn-warning ml-auto">Edit</a>
                             <a href="/comments/{{ $comment->id }}/delete" class="btn btn-danger ml-auto">Delete</a>
                         @endif
                     </li>

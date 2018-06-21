@@ -40,6 +40,9 @@ class PostsController extends Controller
     public function create()
     {
         if (!auth()->check()){
+            session()->flash(
+                'error', 'You must first login.'
+            );
             return redirect('/login');
         }
         return view('posts.create');
@@ -105,7 +108,10 @@ class PostsController extends Controller
         //
         $post = \App\Post::find($id);
         $post->delete();
-        return redirect('/')->with('success', 'Post has been  deleted');
+        session()->flash(
+            'message', 'Post has been  deleted'
+        );
+        return redirect('/');
     }
 
 

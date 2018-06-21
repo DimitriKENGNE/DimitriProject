@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
 use App\Post;
 use App\Comment;
@@ -12,20 +12,43 @@ class CommentsController extends Controller
     //
     public function store(Post $post)    //Add a comment to the current post
     {
+        if (!auth()->check()){
+            session()->flash(
+                'error', 'You must first login.'
+            );
+            return redirect('/login');
+        }
         $this->validate(request(), ['body'=>'required|min:2']);
         $post->addComment(request('body'));
 
-
         return back();
+
     }
 
+    public function edit($id)
+    {
+        $comment = \App\Comment::find($id);
+        return view('comments.edit', compact('comment', 'id'));
+    }
 
+    public function update(Request $request, $id)
+    {
+        //
+        $comment= \App\Comment::find($id);
+        $comment->body=$request->get('body');
+        $comment->save();
+
+        return redirect('/');
+    }
 
     public function destroy($id)
     {
         //
         $comment = \App\Comment::find($id);
         $comment->delete();
-        return back()->with('success', 'Post has been  deleted');
+        session()->flash(
+            'message', 'Comment has been  deleted.'
+        );
+        return back();
     }
 }
