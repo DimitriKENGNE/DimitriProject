@@ -15,6 +15,10 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/app.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+
+    <script src="{{ URL::asset('js/app.js') }}"></script>
 </head>
 
 <body>

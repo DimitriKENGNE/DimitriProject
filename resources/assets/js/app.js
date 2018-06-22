@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./show');
 
 window.Vue = require('vue');
 
@@ -22,11 +23,5 @@ const app = new Vue({
 });
 
 
-document.getElementById('hide').addEventListener("click", function(){
-    document.getElementById('flash-alert').style.display = "none"
-});
 
-document.getElementById('show').addEventListener("click", function(){
-    document.getElementById('flash-alert').style.display = "block"
-});
 
