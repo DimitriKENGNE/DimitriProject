@@ -10604,7 +10604,9 @@ h6,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  top: 500px;
+  top: 250px;
+  left: 500px;
   display: none;
+  background-color: #cccccc !important;
 }
 

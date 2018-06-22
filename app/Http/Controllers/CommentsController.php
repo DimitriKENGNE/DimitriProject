@@ -38,7 +38,9 @@ class CommentsController extends Controller
         $comment->body=$request->get('body');
         $comment->save();
 
-        return redirect('/');
+//        return redirect('/');
+        return back()->back();
+
     }
 
     public function destroy($id)

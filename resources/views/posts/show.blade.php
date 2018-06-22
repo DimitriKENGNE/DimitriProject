@@ -37,12 +37,12 @@
                         </strong>
                         @if($comment->user->id == auth()->id())
                             <a href="/comments/{{ $comment->id }}/edit" class="btn btn-warning ml-auto">Edit</a>
-                            <button class="btn btn-danger ml-auto" onclick="document.getElementById('id{{ $comment->id }}').style.display = 'block'">Delete</button>
+                            <button class="btn btn-danger ml-auto delete-btn" >Delete</button>
 
-                            <div class="sidebar-module sidebar-module-inset flash-alert" id="id{{ $comment->id }}">
+                            <div class="sidebar-module sidebar-module-inset flash-alert">
                                 <p>Do you really want to delete this comment ?</p>
 
-                                <button class="btn btn-danger"  onclick="document.getElementById('id{{ $comment->id }}').style.display = 'none'">No</button>
+                                <button class="btn btn-danger hide-alert">No</button>
                                 <a class="btn btn-primary" href="/comments/{{ $comment->id }}/delete">Yes</a>
                             </div>
                         @endif
