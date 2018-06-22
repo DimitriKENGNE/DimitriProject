@@ -19,7 +19,14 @@
 
             @if($post->user->id == auth()->id())
                 <a href="/posts/{{ $post->id }}/edit" class="btn btn-warning">Edit</a>
-                <a href="/posts/{{ $post->id }}/delete" class="btn btn-danger">Delete</a>
+                <button class="btn btn-danger ml-auto delete-btn" >Delete</button>
+
+                <div class="sidebar-module sidebar-module-inset flash-alert">
+                    <p>Do you really want to delete this post ?</p>
+
+                    <button class="btn btn-danger hide-alert">No</button>
+                    <a class="btn btn-primary" href="/posts/{{ $post->id }}/delete">Yes</a>
+                </div>
             @endif
         </div><!-- /.blog-post -->
 
