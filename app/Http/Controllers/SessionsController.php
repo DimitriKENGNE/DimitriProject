@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class SessionsController extends Controller
 {
@@ -17,12 +19,15 @@ class SessionsController extends Controller
     {
         // Create a new session
 
+        Session::setPreviousUrl(URL::current());
+
         return view('sessions.create');
     }
 
     public function store()
     {
         // Attempt to authenticate the user. If not, redirect back and If so, sign them in
+
 
         if (!auth()->attempt(request(['email', 'password']))) {
             return back()->withErrors([
@@ -32,7 +37,7 @@ class SessionsController extends Controller
 
         // Redirect to the home page
 
-        return redirect()->home();
+        return redirect(Session::previousUrl());
     }
 
 
