@@ -37,8 +37,9 @@ class CommentsController extends Controller
         $comment= \App\Comment::find($id);
         $comment->body=$request->get('body');
         $comment->save();
+        $f= $comment->post;
 
-        return redirect('/');
+        return redirect("/posts/$f->id");
     }
 
     public function destroy($id)
