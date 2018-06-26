@@ -35,5 +35,22 @@ class RegistrationController extends Controller
         return redirect()->home();
     }
 
+    public function edit($id)
+    {
+        $user = \App\User::find($id);
+        return view('registration.edit', compact('user', 'id'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        //
+        $user= \App\User::find($id);
+        $user->name= $request->get('name');
+        $user->email= $request->get('email');
+        $user->password= Hash::make(request('password'));
+        $user->save();
+        return redirect('/');
+    }
+
 
 }
