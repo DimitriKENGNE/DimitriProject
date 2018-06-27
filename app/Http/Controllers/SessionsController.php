@@ -19,7 +19,7 @@ class SessionsController extends Controller
     {
         // Create a new session
 
-//        Session::setPreviousUrl(URL::current());
+        Session::setPreviousUrl(URL::current());
 
         return view('sessions.create');
     }
@@ -37,8 +37,7 @@ class SessionsController extends Controller
 
         // Redirect to the home page
 
-//        return redirect(Session::previousUrl());
-        return redirect()->home();
+        return redirect(Session::previousUrl());
     }
 
 

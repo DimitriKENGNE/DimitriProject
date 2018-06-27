@@ -30,7 +30,6 @@ class RegistrationForm extends FormRequest
             //// Validate the form
             'name' => 'required',
             'email' => 'required|email',
-            'filename' => 'required',
             'password' => 'required|confirmed'
         ];
     }
@@ -40,10 +39,8 @@ class RegistrationForm extends FormRequest
         $user = User::create([
                 'name' => request('name'),
                 'email' => request('email'),
-                'password' => Hash::make(request('password')),
-                'filename' => request('filename'),
+                'password' => Hash::make(request('password'))
             ]);
-
 
         // Sign them in
         auth()->login($user);

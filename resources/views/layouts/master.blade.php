@@ -13,7 +13,6 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    {{--W3 CSS--}}
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!-- Custom styles for this template -->

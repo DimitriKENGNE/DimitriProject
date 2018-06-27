@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 <label for="email">Photo:</label>
-                <input type="file" class="form-control" id="image" name="image" >
+                <input type="file" class="form-control" id="image" name="filename" >
             </div>
 
             <div class="form-group">
