@@ -28,6 +28,14 @@ class RegistrationController extends Controller
 
         $form->persist();
 
+        $originalImage= $request->file('filename');
+        $thumbnailImage = Image::make($originalImage);
+        $thumbnailPath = public_path().'/thumbnail/';
+        $originalPath = public_path().'/images/';
+        $thumbnailImage->save($originalPath.time().$originalImage->getClientOriginalName());
+        $thumbnailImage->resize(150,150);
+        $thumbnailImage->save($thumbnailPath.time().$originalImage->getClientOriginalName());
+
         session()->flash('message', 'Thanks so much for signing up!');
 
 
