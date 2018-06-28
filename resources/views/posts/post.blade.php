@@ -4,6 +4,8 @@
             {{ $post->title }}
         </a>
     </h2>
+    @foreach($post->filenames as $filename )
+    <img src="" alt="">
     <p class="blog-post-meta">
         by {{ $post->user->name }}
         on {{ $post->created_at->toDayDateTimeString() }}

@@ -49,26 +49,50 @@ class PostsController extends Controller
     }
 
 
-    public function store()
+    public function store(Request $request)
     {
         // On valide d'abord le formulaire.
         $this->validate(request(), [
             'title' => 'required',
             'body' => 'required',
+            'filename' => 'required',
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+
+        if($request->hasfile('filename'))
+        {
+
+            foreach($request->file('filename') as $image)
+            {
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/images/', $name);
+                $data[] = $name;
+            }
+        }
+
 
         //Create a new post using the request data
         //$post = new Post;
         //$post->title = request('title');
         //$post->body = request('body');
-
+        
 
         //Save it to the database
         //$post->save();
+        
+
+
 
         auth()->user()->publish(             // Create a post and save it to the database
-          new Post(request(['title', 'body']))
+//          new Post(request(['title', 'body']))
+          new Post([
+              'title' => request('title'),
+              'body' => request('body'),
+              'filename' => json_encode($data),
+          ])
         );
+
+
 
         //  OU ENCORE
         //

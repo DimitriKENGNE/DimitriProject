@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
 
     <script src="{{ URL::asset('js/app.js') }}"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+
 </head>
 
 <body>

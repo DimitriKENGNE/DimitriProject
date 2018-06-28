@@ -18,11 +18,6 @@
             </div>
 
             <div class="form-group">
-                <label for="email">Photo:</label>
-                <input type="file" class="form-control" id="image" name="filename" required>
-            </div>
-
-            <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
