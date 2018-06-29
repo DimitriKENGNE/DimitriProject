@@ -10,11 +10,17 @@
             <h2 class="blog-post-title">
                     {{ $post->title }}
             </h2>
+
+            
+            
             <p class="blog-post-meta">
                 by {{ $post->user->name }}
                 on {{ $post->created_at->toDayDateTimeString() }}
             </p>
-
+            @foreach($post->images as $image)
+                <img class="card-img" style="width:200px" src="{{ URL::asset('/images/'.$image->name) }}" alt="">
+            @endforeach
+            <br>
             {{ $post->body }} <br>
 
             @if($post->user->id == auth()->id())

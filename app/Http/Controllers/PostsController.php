@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use Illuminate\Http\Request;
 
 use App\Post;
@@ -59,17 +60,6 @@ class PostsController extends Controller
             'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        if($request->hasfile('filename'))
-        {
-
-            foreach($request->file('filename') as $image)
-            {
-                $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/', $name);
-                $data[] = $name;
-            }
-        }
-
 
         //Create a new post using the request data
         //$post = new Post;
@@ -79,18 +69,29 @@ class PostsController extends Controller
 
         //Save it to the database
         //$post->save();
-        
 
 
+        $post = new Post([
+            'title' => request('title'),
+            'body' => request('body'),
+        ]);
 
         auth()->user()->publish(             // Create a post and save it to the database
 //          new Post(request(['title', 'body']))
-          new Post([
-              'title' => request('title'),
-              'body' => request('body'),
-              'filename' => json_encode($data),
-          ])
+            $post
         );
+
+        if($request->hasfile('filename'))
+        {
+
+            foreach($request->file('filename') as $name)
+            {
+
+                $name->move(public_path().'/images/', $name->getClientOriginalName());
+
+                $post->addImage($name->getClientOriginalName());
+            }
+        }
 
 
 

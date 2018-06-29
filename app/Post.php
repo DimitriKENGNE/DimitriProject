@@ -3,6 +3,8 @@
 namespace App;
 
 use Carbon\Carbon;
+//use Intervention\Image\Facades\Image;
+
 //use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -34,6 +36,11 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
 
     // A post also belongs to a user
     public function user()
@@ -54,6 +61,15 @@ class Post extends Model
         //
         Comment::create([
             'body' => $body,
+            'post_id' => $this->id,   //$this refer to the post.
+            'user_id' => auth()->id(),
+        ]);
+    }
+
+    public function addImage($name)
+    {
+        Image::create([
+            'name' => $name,
             'post_id' => $this->id,   //$this refer to the post.
             'user_id' => auth()->id(),
         ]);
