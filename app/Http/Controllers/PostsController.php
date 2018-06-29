@@ -56,7 +56,6 @@ class PostsController extends Controller
         $this->validate(request(), [
             'title' => 'required',
             'body' => 'required',
-            'filename' => 'required',
             'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
