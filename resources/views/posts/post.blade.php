@@ -12,7 +12,7 @@
     {{ $post->body }}
     <br>
     @foreach($post->images as $image)
-        <img class="card-img" style="width:200px" src="{{ URL::asset('/images/'.$image->name) }}" alt="">
+        <img class="rounded"  width="304" src="{{ URL::asset('/images/'.$image->name) }}" alt="">
     @endforeach
     <br>
 </div><!-- /.blog-post -->

@@ -22,6 +22,7 @@
                 <textarea name="body" id="body" cols="30" rows="3" class="form-control"></textarea>
             </div>
 
+            <label for="filename"> Add pictures on the post </label>
             <div class="input-group control-group increment" >
                 <input type="file" name="filename[]" class="form-control">
                 <div class="input-group-btn">

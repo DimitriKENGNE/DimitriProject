@@ -3,8 +3,8 @@
 namespace App;
 
 use Carbon\Carbon;
+//use Faker\Provider\Image;
 //use Intervention\Image\Facades\Image;
-
 //use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model

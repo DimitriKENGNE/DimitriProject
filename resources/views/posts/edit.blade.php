@@ -14,13 +14,36 @@
 
             <div class="form-group">
                 <label for="title">Title:</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{$post->title}}">
+                <input type="text" class="form-control" id="title" name="title" value="{{$post->title}}" autofocus>
             </div>
 
             <div class="form-group">
                 <label for="body">Body</label>
                 <textarea name="body" id="body" cols="30" rows="3" class="form-control" >{{$post->body}}</textarea>
             </div>
+
+            @foreach($post->images as $image)
+                <div style="display:inline-block">
+                    <img class="rounded" width="304" src="{{ URL::asset('/images/'.$image->name) }}" alt="">
+                </div>
+            @endforeach
+
+            <label for="filename"> Add pictures on the post </label>
+            <div class="input-group control-group increment" >
+                <input type="file" name="filename[]" class="form-control">
+                <div class="input-group-btn">
+                    <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+                </div>
+            </div>
+            <div class="clone hide">
+                <div class="control-group input-group" style="margin-top:10px">
+                    <input type="file" name="filename[]" class="form-control">
+                    <div class="input-group-btn">
+                        <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Save change</button>

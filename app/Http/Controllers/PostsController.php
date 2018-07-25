@@ -119,11 +119,29 @@ class PostsController extends Controller
 
     public function update(Request $request, $id)
     {
+//        // On valide d'abord le formulaire.
+//        $this->validate(request(), [
+//            'title' => 'required',
+//            'body' => 'required',
+//            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+//        ]);
+
         //
         $post= \App\Post::find($id);
         $post->title=$request->get('title');
         $post->body=$request->get('body');
         $post->save();
+
+        if($request->hasfile('filename'))
+        {
+            foreach($request->file('filename') as $name)
+            {
+                $name->move(public_path().'/images/', $name->getClientOriginalName());
+
+                $post->addImage($name->getClientOriginalName());
+            }
+        }
+
         return redirect('/');
     }
 
