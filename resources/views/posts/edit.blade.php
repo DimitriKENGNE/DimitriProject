@@ -8,7 +8,7 @@
 
         <hr>
 
-        <form method="post" action="/posts/update/{{$id}} ">
+        <form method="post" action="/posts/update/{{$id}}" enctype="multipart/form-data">
 
             {{ csrf_field() }}
 
@@ -24,7 +24,15 @@
 
             @foreach($post->images as $image)
                 <div style="display:inline-block">
-                    <img class="rounded" width="304" src="{{ URL::asset('/images/'.$image->name) }}" alt="">
+                    <img class="rounded" width="304" src="{{ URL::asset('/images/'.$image->name) }}" alt=""><br>
+                    <button type="button" class="btn btn-danger ml-auto delete-btn" ><i class="material-icons" style="color:white">delete</i></button>
+
+                    <div class="sidebar-module sidebar-module-inset flash-alert">
+                        <p>Do you really want to delete this picture ?</p>
+
+                        <button type="button" class="btn btn-danger hide-alert">No</button>
+                        <a class="btn btn-primary" href="/image/{{ $image->id }}/delete">Yes</a>
+                    </div>
                 </div>
             @endforeach
 
@@ -62,5 +70,21 @@
 
     </div>
 
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+            $(".btn-success").click(function(){
+                var html = $(".clone").html();
+                $(".increment").after(html);
+            });
+
+            $("body").on("click",".btn-danger",function(){
+                $(this).parents(".control-group").remove();
+            });
+
+        });
+
+    </script>
 @endsection
 

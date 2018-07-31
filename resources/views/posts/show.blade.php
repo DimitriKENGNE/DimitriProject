@@ -20,8 +20,7 @@
 
             @foreach($post->images as $image)
                 <div style="display:inline-block">
-                    <img class="rounded" width="304" src="{{ URL::asset('/images/'.$image->name) }}" alt=""><br>
-                    <button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span> Remove </button>
+                    <img class="rounded" width="304" src="{{ URL::asset('/images/'.$image->name) }}" alt="">
                 </div>
             @endforeach
 

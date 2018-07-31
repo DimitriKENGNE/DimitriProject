@@ -48,6 +48,7 @@ Route::post('/posts/update/{post}', 'PostsController@update');
 
 
 Route::get('/posts/{post}/delete', 'PostsController@destroy');
+Route::get('/image/{image}/delete', 'ImageController@destroy');
 
 
 

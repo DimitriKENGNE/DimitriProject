@@ -119,12 +119,12 @@ class PostsController extends Controller
 
     public function update(Request $request, $id)
     {
-//        // On valide d'abord le formulaire.
-//        $this->validate(request(), [
-//            'title' => 'required',
-//            'body' => 'required',
-//            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-//        ]);
+        // On valide d'abord le formulaire.
+        $this->validate(request(), [
+            'title' => 'required',
+            'body' => 'required',
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
 
         //
         $post= \App\Post::find($id);

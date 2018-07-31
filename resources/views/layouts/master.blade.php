@@ -15,6 +15,9 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+    {{--For icons--}}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link href="/css/app.css" rel="stylesheet">
 
