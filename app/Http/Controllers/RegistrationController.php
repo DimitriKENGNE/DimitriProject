@@ -35,6 +35,11 @@ class RegistrationController extends Controller
         return redirect()->home();
     }
 
+    public function show (User $user)
+    {
+        return view('registration.show', compact('user'));
+    }
+
     public function edit($id)
     {
         $user = \App\User::find($id);
@@ -49,7 +54,7 @@ class RegistrationController extends Controller
         $user->email= $request->get('email');
         $user->password= Hash::make(request('password'));
         $user->save();
-        return redirect('/');
+        return redirect("/account/$user->id");
     }
 
 

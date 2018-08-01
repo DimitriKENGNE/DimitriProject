@@ -4,7 +4,7 @@
     <div class="col-sm-8">
         <h1>Edit my Account</h1>
 
-        <form method="post" action="/register/update/{{$id}}">
+        <form method="post" action="/register/update/{{ $user->id }}">
             {{ csrf_field() }}
 
             <div class="form-group">

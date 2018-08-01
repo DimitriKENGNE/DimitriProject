@@ -11,7 +11,7 @@
             <div class="w3-dropdown-hover nav-link ml-auto">
                 <button class="w3-button w3-blue"> {{ Auth::user()->name }}<span class="caret"></span></button>
                 <div class="w3-dropdown-content w3-bar-block w3-border">
-                    <a href="#" class="w3-bar-item w3-button">My account</a>
+                    <a href="/account/{{ Auth::user()->id }}" class="w3-bar-item w3-button">My account</a>
                     <a href="/register/{{ Auth::user()->id }}/edit" class="w3-bar-item w3-button">Edit my account</a>
                     <a href="/logout" class="w3-bar-item w3-button">Logout</a>
                 </div>

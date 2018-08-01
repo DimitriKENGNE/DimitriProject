@@ -67,6 +67,11 @@ Route::get('/register', 'RegistrationController@create');
 
 Route::post('/register', 'RegistrationController@store');
 
+Route::get('/account/{user}', 'RegistrationController@show');
+
+Route::get('/register/{user}/edit', 'RegistrationController@edit');
+Route::post('/register/update/{user}', 'RegistrationController@update');
+
 
 
 
