@@ -28,6 +28,9 @@ class Post extends Model
             foreach ($posts->comments()->get() as $comment) {
                 $comment->delete();
             }
+            foreach ($posts->images()->get() as $image) {
+                $image->delete();
+            }
         });
     }
 
